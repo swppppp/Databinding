@@ -30,15 +30,16 @@ class RecentItemTouchHelperCallback() : ItemTouchHelper.Callback() {
         mAdapter.onItemDismiss(vh.adapterPosition)
     }
 
-    /// 이거도 쓴
-    override fun isLongPressDragEnabled(): Boolean {
-        return true
-    }
+    /// 이거도 쓴..?안써도 되넹
 
+    override fun isLongPressDragEnabled(): Boolean {
+        return false
+    }
+    /*
     override fun isItemViewSwipeEnabled(): Boolean {
         return true
     }
-    /*---------------------------------------*/
+    --------------------------------------*/
 
 }
 

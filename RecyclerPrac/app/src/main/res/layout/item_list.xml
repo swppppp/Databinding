@@ -39,6 +39,7 @@
             android:layout_height="match_parent"
             android:gravity="right">
         <ImageView
+            android:id="@+id/drag_view"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"

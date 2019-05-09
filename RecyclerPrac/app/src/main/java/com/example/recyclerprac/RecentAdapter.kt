@@ -3,21 +3,32 @@ package com.example.recyclerprac
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.example.recyclerprac.databinding.ItemListBinding
 import com.example.recyclerprac.model.Recent
+import kotlinx.android.synthetic.main.item_list.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class RecentAdapter(var items:ArrayList<Recent>, var context:Context)
+class RecentAdapter(var items:ArrayList<Recent>, var context:Context, var listener: ItemDragListener)
     : RecyclerView.Adapter<RecentAdapter.ViewHolder>(), ItemTouchHelperAdapter {
 
     //lateinit var binding: ItemListBinding
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding: ItemListBinding = ItemListBinding.bind(itemView)
+
+        init {
+            itemView.drag_view.setOnTouchListener { v, event ->
+                if (event.action == MotionEvent.ACTION_DOWN) {
+                    listener.onStartDrag(this)
+                }
+                false
+            }
+        }
 
         fun onBindViewHolder(item: Recent){
 //            binding.tvName.text = item.name
@@ -50,6 +61,5 @@ class RecentAdapter(var items:ArrayList<Recent>, var context:Context)
         items.removeAt(position)
         notifyItemRemoved(position)
     }
-
 
 }
