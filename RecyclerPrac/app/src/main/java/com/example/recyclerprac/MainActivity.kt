@@ -24,21 +24,21 @@ class MainActivity : AppCompatActivity() {
         binding.mainActivity = this
 
         recentAdapter = RecentAdapter(vm.getRecentData().data, this@MainActivity)
-        //binding.rv.setLayoutManager(LinearLayoutManager(this@MainActivity))
+        //binding.rv.setLayoutManager(LinearLayoutManager(this@MainActivity)) // xml파일에서 설정해줌..
         Log.d("datadata",vm.getRecentData().data.get(1).name)
         Log.d("datadata","asdfasdf")
+
+        // 아이템 순서바꾸기 위한 콜백함수객체 만들어 넘겨주기
+        var mCallback: ItemTouchHelper.Callback = RecentItemTouchHelperCallback(recentAdapter)
+        var mItemtouchHelper : ItemTouchHelper = ItemTouchHelper(mCallback)
+        mItemtouchHelper.attachToRecyclerView(binding.rv)
 
         var itemDecoration :RecyclerView.ItemDecoration = DividerItemDecoration(this,DividerItemDecoration.VERTICAL)
         binding.rv.addItemDecoration(itemDecoration)
         binding.rv.adapter = recentAdapter
         Log.d("datadata", "adapter set")
 
-        /*
-        ItemTouchHelper
-        ItemTouchHelper.Callback
-        */
     }
-
 
 }
 

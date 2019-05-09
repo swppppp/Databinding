@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.recyclerprac.databinding.ItemListBinding
 import com.example.recyclerprac.model.Recent
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class RecentAdapter(var items:ArrayList<Recent>, var context:Context) : RecyclerView.Adapter<RecentAdapter.ViewHolder>() {
+class RecentAdapter(var items:ArrayList<Recent>, var context:Context)
+    : RecyclerView.Adapter<RecentAdapter.ViewHolder>(), ItemTouchHelperAdapter {
 
     //lateinit var binding: ItemListBinding
 
@@ -36,6 +39,18 @@ class RecentAdapter(var items:ArrayList<Recent>, var context:Context) : Recycler
         holder.onBindViewHolder(items[position])
     }
 
+
+    /*----------------------------------------*/
+    // 스와이프로 삭제, 롱프레스드래그로 순서바꾸기
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        Collections.swap(items, fromPosition, toPosition)
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemDismiss(position: Int) {
+        items.removeAt(position)
+        notifyItemRemoved(position)
+    }
 
 
 }
