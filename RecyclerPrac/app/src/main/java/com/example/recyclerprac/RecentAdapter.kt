@@ -39,7 +39,6 @@ class RecentAdapter(var items:ArrayList<Recent>, var context:Context)
         holder.onBindViewHolder(items[position])
     }
 
-
     /*----------------------------------------*/
     // 스와이프로 삭제, 롱프레스드래그로 순서바꾸기
     override fun onItemMove(fromPosition: Int, toPosition: Int) {
