@@ -7,6 +7,7 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.util.Log
+import com.example.recyclerprac.adapter.RecentAdapter
 import com.example.recyclerprac.viewmodel.RecentViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.example.recyclerprac.databinding.ActivityMainBinding

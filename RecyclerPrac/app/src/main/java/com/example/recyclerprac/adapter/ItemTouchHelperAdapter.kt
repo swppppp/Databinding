@@ -1,4 +1,4 @@
-package com.example.recyclerprac
+package com.example.recyclerprac.adapter
 
 // 리스너 같은건가..
 interface ItemTouchHelperAdapter {

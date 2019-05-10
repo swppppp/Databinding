@@ -2,6 +2,7 @@ package com.example.recyclerprac
 
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
+import com.example.recyclerprac.adapter.ItemTouchHelperAdapter
 
 class RecentItemTouchHelperCallback() : ItemTouchHelper.Callback() {
 

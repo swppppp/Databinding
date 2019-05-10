@@ -1,4 +1,4 @@
-package com.example.recyclerprac
+package com.example.recyclerprac.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import com.example.recyclerprac.ItemDragListener
+import com.example.recyclerprac.R
 import com.example.recyclerprac.databinding.ItemListBinding
 import com.example.recyclerprac.model.Recent
 import kotlinx.android.synthetic.main.item_list.view.*
@@ -14,7 +16,8 @@ import kotlin.collections.ArrayList
 
 
 class RecentAdapter(var items:ArrayList<Recent>, var context:Context, var listener: ItemDragListener)
-    : RecyclerView.Adapter<RecentAdapter.ViewHolder>(), ItemTouchHelperAdapter {
+    : RecyclerView.Adapter<RecentAdapter.ViewHolder>(),
+    ItemTouchHelperAdapter {
 
     //lateinit var binding: ItemListBinding
 
